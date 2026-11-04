@@ -1,124 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Danh sách sản phẩm khuyến mãi minh họa của Thế Giới Di Động.">
     <title>Sản phẩm khuyến mãi - Thế Giới Di Động</title>
-
-    <!-- Kết nối file CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <header class="site-header">
-        <div class="container">
-            <h1>Thế Giới Di Động</h1>
-            <p>Sản phẩm khuyến mãi nổi bật</p>
+        <div class="container header-content">
+            <div class="brand">
+                <h1>Thế Giới Di Động</h1>
+                <p>Sản phẩm khuyến mãi nổi bật</p>
+            </div>
+            <nav class="main-nav" aria-label="Điều hướng chính">
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="#about">Giới thiệu</a>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section class="products">
-            <h2>Khuyến mãi online</h2>
+    <main class="container" id="home">
+        <section class="products" id="products" aria-labelledby="products-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Ưu đãi dành riêng cho bạn</p>
+                    <h2 id="products-title">Khuyến mãi online</h2>
+                </div>
+                <p class="section-description">Khám phá các sản phẩm nổi bật với mức giá ưu đãi.</p>
+            </div>
 
             <div class="product-list">
-
-                <!-- Sản phẩm 1 -->
-                <article class="product-card">
+                <article class="product-card" aria-labelledby="product-1-title">
                     <span class="promo-badge">Ưu đãi online</span>
-
-                    <img
-                        src="images/iphone.jpeg1.jpg"
-                        alt="Điện thoại thông minh"
-                    >
-
-                    <h3>Điện thoại thông minh</h3>
-
-                    <p class="product-rating">⭐ 4.8 | Đã bán 120</p>
-
-                    <p class="price">5.990.000đ</p>
-
-                    <div class="discount-info">
-                        <span class="old-price">6.990.000đ</span>
-                        <span class="discount-percent">-14%</span>
+                    <img src="images/iphone.jpeg1.jpg" alt="Điện thoại thông minh" loading="lazy">
+                    <div class="product-content">
+                        <h3 id="product-1-title">Điện thoại thông minh</h3>
+                        <p class="product-rating" aria-label="Đánh giá 4.8 trên 5 sao">★ 4.8 <span>| Đã bán 120</span></p>
+                        <p class="price">5.990.000đ</p>
+                        <div class="discount-info">
+                            <span class="old-price">6.990.000đ</span>
+                            <span class="discount-percent">-14%</span>
+                        </div>
+                        <button type="button" class="buy-button">Mua ngay</button>
                     </div>
-
-                    <button type="button">Mua ngay</button>
                 </article>
 
-                <!-- Sản phẩm 2 -->
-                <article class="product-card">
+                <article class="product-card" aria-labelledby="product-2-title">
                     <span class="promo-badge">Trả chậm 0%</span>
-
-                    <img
-                        src="images/laptop.webp.jpg"
-                        alt="Laptop học tập và làm việc"
-                    >
-
-                    <h3>Laptop học tập và làm việc</h3>
-
-                    <p class="product-rating">⭐ 4.7 | Đã bán 85</p>
-
-                    <p class="price">12.490.000đ</p>
-
-                    <div class="discount-info">
-                        <span class="old-price">14.990.000đ</span>
-                        <span class="discount-percent">-17%</span>
+                    <img src="images/laptop.webp.jpg" alt="Laptop học tập và làm việc" loading="lazy">
+                    <div class="product-content">
+                        <h3 id="product-2-title">Laptop học tập và làm việc</h3>
+                        <p class="product-rating" aria-label="Đánh giá 4.7 trên 5 sao">★ 4.7 <span>| Đã bán 85</span></p>
+                        <p class="price">12.490.000đ</p>
+                        <div class="discount-info">
+                            <span class="old-price">14.990.000đ</span>
+                            <span class="discount-percent">-17%</span>
+                        </div>
+                        <button type="button" class="buy-button">Mua ngay</button>
                     </div>
-
-                    <button type="button">Mua ngay</button>
                 </article>
 
-                <!-- Sản phẩm 3 -->
-                <article class="product-card">
+                <article class="product-card" aria-labelledby="product-3-title">
                     <span class="promo-badge">Ưu đãi online</span>
-
-                    <img
-                        src="images/tablet.webp.jpg"
-                        alt="Máy tính bảng giải trí"
-                    >
-
-                    <h3>Máy tính bảng giải trí</h3>
-
-                    <p class="product-rating">⭐ 4.6 | Đã bán 62</p>
-
-                    <p class="price">4.490.000đ</p>
-
-                    <div class="discount-info">
-                        <span class="old-price">5.490.000đ</span>
-                        <span class="discount-percent">-18%</span>
+                    <img src="images/tablet.webp.jpg" alt="Máy tính bảng giải trí" loading="lazy">
+                    <div class="product-content">
+                        <h3 id="product-3-title">Máy tính bảng giải trí</h3>
+                        <p class="product-rating" aria-label="Đánh giá 4.6 trên 5 sao">★ 4.6 <span>| Đã bán 62</span></p>
+                        <p class="price">4.490.000đ</p>
+                        <div class="discount-info">
+                            <span class="old-price">5.490.000đ</span>
+                            <span class="discount-percent">-18%</span>
+                        </div>
+                        <button type="button" class="buy-button">Mua ngay</button>
                     </div>
-
-                    <button type="button">Mua ngay</button>
                 </article>
 
-                <!-- Sản phẩm 4 -->
-                <article class="product-card">
+                <article class="product-card" aria-labelledby="product-4-title">
                     <span class="promo-badge">Giảm giá đặc biệt</span>
-
-                    <img
-                        src="images/watch.webp.jpg"
-                        alt="Đồng hồ thông minh"
-                    >
-
-                    <h3>Đồng hồ thông minh</h3>
-
-                    <p class="product-rating">⭐ 4.9 | Đã bán 150</p>
-
-                    <p class="price">1.990.000đ</p>
-
-                    <div class="discount-info">
-                        <span class="old-price">2.490.000đ</span>
-                        <span class="discount-percent">-20%</span>
+                    <img src="images/watch.webp.jpg" alt="Đồng hồ thông minh" loading="lazy">
+                    <div class="product-content">
+                        <h3 id="product-4-title">Đồng hồ thông minh</h3>
+                        <p class="product-rating" aria-label="Đánh giá 4.9 trên 5 sao">★ 4.9 <span>| Đã bán 150</span></p>
+                        <p class="price">1.990.000đ</p>
+                        <div class="discount-info">
+                            <span class="old-price">2.490.000đ</span>
+                            <span class="discount-percent">-20%</span>
+                        </div>
+                        <button type="button" class="buy-button">Mua ngay</button>
                     </div>
-
-                    <button type="button">Mua ngay</button>
                 </article>
-
             </div>
         </section>
+
+        <section class="about" id="about" aria-labelledby="about-title">
+            <h2 id="about-title">Mua sắm thuận tiện mỗi ngày</h2>
+            <p>Giao diện minh họa giúp khách hàng dễ quan sát hình ảnh, giá bán và ưu đãi của từng sản phẩm.</p>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <p>Giao diện thực hành HTML5 và CSS3 - Bài tập cá nhân Buổi 2</p>
+    </footer>
 </body>
 </html>
