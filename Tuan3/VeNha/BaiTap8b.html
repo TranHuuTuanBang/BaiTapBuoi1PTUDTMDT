@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bat Family</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: white;
+}
+
+/* Khung chứa lớn */
+.container {
+    width: 1024px;
+    max-width: 98%;
+    margin: 35px auto;
+}
+
+/* Tiêu đề */
+.site-header {
+    text-align: center;
+    margin: 0 0 25px;
+    padding: 10px;
+    background: #ccc;
+    color: white;
+    text-shadow: 2px 2px 3px black;
+}
+
+.site-header h1 {
+    font-size: 25px;
+    margin: 0;
+}
+
+/* Danh sách nhân vật */
+.superheroes {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+/* Từng nhân vật */
+.superheroes li {
+    width: 150px;
+    display: inline-block;
+    position: relative;
+    transition: width 0.3s ease;
+}
+
+/* Hình ảnh */
+.superheroes img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 145px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 14px;
+}
+
+/* Liên kết */
+.superheroes a {
+    display: block;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Tên nhân vật */
+.superheroes .name {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+}
+
+/* Read more mặc định ẩn */
+.superheroes .read-more {
+    display: none;
+    margin-top: 4px;
+    padding: 8px;
+    background: #666;
+    color: white;
+    font-size: 13px;
+}
+
+/* Hover: tăng chiều rộng */
+.superheroes li:hover {
+    width: 175px;
+}
+
+/* Hover: hiện Read more */
+.superheroes li:hover .read-more {
+    display: block;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .superheroes {
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <header class="site-header">
+        <h1>🦇 The Bat family</h1>
+    </header>
+
+    <ul class="superheroes">
+
+        <!-- Batman -->
+        <li>
+            <a href="#">
+                <img src="batman.jpg" alt="Batman">
+                <span class="name">Batman</span>
+                <span class="read-more">Read more</span>
+            </a>
+        </li>
+
+        <!-- Batwing -->
+        <li>
+            <a href="#">
+                <img src="batwing.jpg" alt="Batwing">
+                <span class="name">Batwing</span>
+                <span class="read-more">Read more</span>
+            </a>
+        </li>
+
+        <!-- Batgirl -->
+        <li>
+            <a href="#">
+                <img src="batgirl.jpg" alt="Batgirl">
+                <span class="name">Batgirl</span>
+                <span class="read-more">Read more</span>
+            </a>
+        </li>
+
+        <!-- Nightwing -->
+        <li>
+            <a href="#">
+                <img src="nightwing.jpg" alt="Nightwing">
+                <span class="name">Nightwing</span>
+                <span class="read-more">Read more</span>
+            </a>
+        </li>
+
+        <!-- Red Robin -->
+        <li>
+            <a href="#">
+                <img src="red-robin.jpg" alt="Red Robin">
+                <span class="name">Red Robin</span>
+                <span class="read-more">Read more</span>
+            </a>
+        </li>
+
+    </ul>
+
+</main>
+
+</body>
+</html>

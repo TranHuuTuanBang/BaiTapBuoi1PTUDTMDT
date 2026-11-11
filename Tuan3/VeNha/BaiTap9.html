@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bài tập 9 - Font Awesome</title>
+
+<!-- Thư viện Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* Cài đặt chung */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fa;
+    color: #263445;
+}
+
+/* Khung nội dung */
+.container {
+    width: 1000px;
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Tiêu đề */
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    font-size: 30px;
+    color: #1769aa;
+}
+
+header h1 i {
+    margin-right: 10px;
+}
+
+header p {
+    color: #777;
+    font-size: 15px;
+}
+
+/* Tiêu đề từng phần */
+.section-title {
+    font-size: 21px;
+    color: #263445;
+    margin: 30px 0 18px;
+    border-left: 5px solid #2196f3;
+    padding-left: 12px;
+}
+
+/* Danh sách icon */
+.icon-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+/* Từng thẻ icon */
+.icon-item {
+    text-align: center;
+    padding: 25px 12px;
+    background: #f3f8fd;
+    border: 1px solid #dce8f3;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Kích thước biểu tượng */
+.icon-item i {
+    font-size: 38px;
+    color: #1683d8;
+    margin-bottom: 15px;
+}
+
+/* Tên biểu tượng */
+.icon-item h3 {
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+/* Mô tả */
+.icon-item p {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* Hiệu ứng khi rê chuột */
+.icon-item:hover {
+    background: #e3f2fd;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+/* Phần mạng xã hội */
+.social-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.social-list a {
+    font-size: 35px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.social-list a:hover {
+    color: #1683d8;
+    transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 35px;
+    color: #888;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+    .icon-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .icon-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+
+        <h1>
+            <i class="fa-solid fa-code"></i>
+            Thế giới biểu tượng Font Awesome
+        </h1>
+
+        <p>
+            Khám phá các biểu tượng sử dụng trong lĩnh vực
+            công nghệ thông tin và phát triển Website.
+        </p>
+
+    </header>
+
+
+    <!-- Phần biểu tượng học tập -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-graduation-cap"></i>
+        Biểu tượng học tập
+    </h2>
+
+    <div class="icon-list">
+
+        <div class="icon-item">
+            <i class="fa-solid fa-book"></i>
+            <h3>Sách</h3>
+            <p>Biểu tượng tài liệu học tập.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Tốt nghiệp</h3>
+            <p>Biểu tượng giáo dục và học tập.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-school"></i>
+            <h3>Trường học</h3>
+            <p>Biểu tượng cơ sở giáo dục.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-user-graduate"></i>
+            <h3>Sinh viên</h3>
+            <p>Biểu tượng người học.</p>
+        </div>
+
+    </div>
+
+
+    <!-- Phần biểu tượng công nghệ -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-laptop-code"></i>
+        Biểu tượng công nghệ
+    </h2>
+
+    <div class="icon-list">
+
+        <div class="icon-item">
+            <i class="fa-solid fa-laptop"></i>
+            <h3>Laptop</h3>
+            <p>Thiết bị phục vụ công việc.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-code"></i>
+            <h3>Lập trình</h3>
+            <p>Biểu tượng viết mã nguồn.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-database"></i>
+            <h3>Cơ sở dữ liệu</h3>
+            <p>Lưu trữ và quản lý dữ liệu.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Website</h3>
+            <p>Biểu tượng Internet và Web.</p>
+        </div>
+
+    </div>
+
+
+    <!-- Phần biểu tượng hệ thống -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-gear"></i>
+        Biểu tượng hệ thống
+    </h2>
+
+    <div class="icon-list">
+
+        <div class="icon-item">
+            <i class="fa-solid fa-house"></i>
+            <h3>Trang chủ</h3>
+            <p>Điều hướng về trang chính.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-user"></i>
+            <h3>Tài khoản</h3>
+            <p>Thông tin người dùng.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-gear"></i>
+            <h3>Cài đặt</h3>
+            <p>Thiết lập hệ thống.</p>
+        </div>
+
+        <div class="icon-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>Tìm kiếm</h3>
+            <p>Tìm kiếm thông tin.</p>
+        </div>
+
+    </div>
+
+
+    <!-- Phần mạng xã hội -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-share-nodes"></i>
+        Biểu tượng mạng xã hội
+    </h2>
+
+    <div class="social-list">
+
+        <a href="https://facebook.com/"
+           target="_blank"
+           title="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+
+        <a href="https://instagram.com/"
+           target="_blank"
+           title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://github.com/"
+           target="_blank"
+           title="GitHub">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://youtube.com/"
+           target="_blank"
+           title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Bài tập 9 - Sử dụng thư viện Font Awesome
+        </p>
+
+        <p>
+            Sinh viên: Trần Hữu Tuấn Bằng
+        </p>
+
+        <p>
+            Phát triển ứng dụng WEB/TMĐT - UEH
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
