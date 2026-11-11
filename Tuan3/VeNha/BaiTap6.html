@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hoc web chuan</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+.portfolio {
+    width: 760px;
+    max-width: 95%;
+    margin: 30px auto;
+    padding: 25px 10px;
+    background: #f7f7f7;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #4bb9b0;
+    margin: 12px auto;
+}
+
+.list-tab {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.list-tab li {
+    display: inline-block;
+    margin: 5px;
+}
+
+.list-tab a {
+    text-decoration: none;
+    font-size: 11px;
+    color: #555;
+    font-weight: bold;
+}
+
+.list-tab a:hover {
+    color: #36aaa5;
+}
+
+.galerry {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.galerry img {
+    width: 100%;
+    display: block;
+}
+
+@media(max-width: 600px) {
+    .galerry {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="portfolio">
+
+<h2>MY PORTFOLIO</h2>
+
+<ul class="list-tab">
+<li><a href="#">All</a></li>
+<li><a href="#">Web App</a></li>
+<li><a href="#">UI/UX</a></li>
+<li><a href="#">Graphics Design</a></li>
+<li><a href="#">Mobile App</a></li>
+<li><a href="#">Branding</a></li>
+<li><a href="#">Marketing</a></li>
+</ul>
+
+<ul class="galerry">
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 1"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 2"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 3"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 4"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 5"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 6"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 7"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 8"></li>
+<li><img src="https://placehold.co/350x260/9aca7c/ffffff?text=Hoc+Web+Chuan" alt="Portfolio 9"></li>
+</ul>
+
+</section>
+
+</body>
+</html>
