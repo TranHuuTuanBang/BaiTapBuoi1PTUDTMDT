@@ -1,0 +1,19 @@
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #eff3f8; color: #18263b; font: 16px/1.65 system-ui, sans-serif; }
+main { width: min(100% - 2rem, 1010px); margin: 3rem auto; }
+header { background: #122944; color: white; padding: clamp(1.25rem, 5vw, 3.5rem); border-radius: 1.3rem; }
+.hero { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1.5rem; }
+.hero img { width: clamp(100px, 22vw, 180px); aspect-ratio: 1; object-fit: cover; border-radius: 1rem; }
+h1 { font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.1; margin: .35em 0; }
+h2, h3 { line-height: 1.3; }
+header p { color: #d7e8fc; }
+header a { color: #b9defe; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 255px), 1fr)); gap: 1rem; }
+article, .reflection, .exercises { background: white; border: 1px solid #d5e0ec; border-radius: 1rem; padding: 1.35rem; }
+a { color: #134e88; text-underline-offset: .2em; }
+a:focus-visible { outline: 3px solid #ca791b; outline-offset: 4px; }
+.card-link { display: inline-block; background: #e5f1fc; border-radius: .55rem; padding: .4rem .75rem; }
+.reflection { margin-top: 1rem; }
+.exercises li { padding: .4rem 0; }
+@media (max-width: 500px) { main { margin-top: 1rem; } .hero { grid-template-columns: 1fr; } }
