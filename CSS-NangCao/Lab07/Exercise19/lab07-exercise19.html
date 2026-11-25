@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 07 | Exercise 7.19 — Using Bootstrap</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lab07-exercise19.css">
+</head>
+<body>
+
+  <main class="container">
+    <nav class="navbar navbar-default" aria-label="Main navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="../index.html">Lab 07</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#main-content">Home</a></li>
+        <li><a href="#destinations">Browse</a></li>
+        <li><a href="#nested-columns">Destinations</a></li>
+      </ul>
+    </nav>
+    <div class="row">
+      <aside class="col-md-3" id="destinations">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h2 class="panel-title">Destinations</h2></div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">Austria</li>
+              <li class="list-group-item">Canada</li>
+              <li class="list-group-item">France</li>
+              <li class="list-group-item">Italy</li>
+              <li class="list-group-item">Spain</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="col-md-9" id="main-content">
+        <div class="jumbotron">
+          <h1>Main Content</h1>
+          <p>Bootstrap uses a 12-column grid. Its responsive column classes define how sections share a row or stack at smaller widths.</p>
+        </div>
+        <h2 id="nested-columns">Nested columns</h2>
+        <div class="row">
+          <div class="col-sm-6 col-md-3 destination">
+            <img class="img-responsive" src="../images/464.jpg" alt="London">
+            <h3 class="h5">London</h3>
+            <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> View</button>
+            <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</button>
+          </div>
+          <div class="col-sm-6 col-md-3 destination">
+            <img class="img-responsive" src="../images/9498358806.jpg" alt="Florence">
+            <h3 class="h5">Florence</h3>
+            <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> View</button>
+            <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</button>
+          </div>
+          <div class="col-sm-6 col-md-3 destination">
+            <img class="img-responsive" src="../images/9504449928.jpg" alt="Florence">
+            <h3 class="h5">Florence</h3>
+            <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> View</button>
+            <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</button>
+          </div>
+          <div class="col-sm-6 col-md-3 destination">
+            <img class="img-responsive" src="../images/9494472443.jpg" alt="Venice">
+            <h3 class="h5">Venice</h3>
+            <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> View</button>
+            <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

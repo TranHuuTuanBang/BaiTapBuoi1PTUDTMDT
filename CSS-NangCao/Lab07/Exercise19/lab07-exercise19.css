@@ -1,0 +1,4 @@
+body { padding: 20px 0; }
+.destination { margin-bottom: 1.5rem; }
+.destination img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.panel-body .list-group { margin-bottom: 0; }
