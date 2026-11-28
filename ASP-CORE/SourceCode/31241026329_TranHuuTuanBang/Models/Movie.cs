@@ -14,7 +14,16 @@ public class Movie
     public decimal Price { get; set; }
     public double Rated { get; set; }
     public string PicturePath { get; set; }
-    public string Poster => PicturePath ?? "/images/no-image.jpg";
+    public string Poster => PicturePath switch
+    {
+        "/posters/ga-cuoi-quy-dao.jpg" => "/images/cinema/ga-cuoi-quy-dao.webp",
+        "/posters/ho-tinh-lang.jpg" => "/images/cinema/ho-tinh-lang.webp",
+        "/posters/chiec-den-tang-bay.jpg" => "/images/cinema/chiec-den-tang-bay.webp",
+        "/posters/phia-sau-man-mua.jpg" => "/images/cinema/phia-sau-man-mua.webp",
+        "/posters/vo-tuyen-binh-minh.jpg" => "/images/cinema/vo-tuyen-binh-minh.webp",
+        null => "/images/cinema/no-image.webp",
+        _ => PicturePath
+    };
 }
 
 public class MovieInput

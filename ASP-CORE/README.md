@@ -8,7 +8,7 @@ Cuộn Phim mô phỏng một cửa hàng phim. Khách có thể lọc phim, xem
 
 - ASP.NET Core MVC .NET 10, Razor, ASP.NET Core Identity, EF Core 10 và Microsoft SQL Server.
 - `SourceCode/31241026329_TranHuuTuanBang` chứa project, các controller, model, view, dịch vụ và migration. Tên namespace có dấu gạch dưới đầu để hợp lệ trong C#.
-- `Report` chứa báo cáo và minh chứng. `SamplePosters` chứa poster minh họa để tải lên qua giao diện.
+- `Report` chứa báo cáo và minh chứng. `SamplePosters` có dữ liệu mẫu và đường dẫn đến bộ poster WebP trong dự án để tải lên qua giao diện.
 - Migration theo thứ tự `InitialCreate`, `MoviesAndGenres`, `HoaDon` và `ShippingDetails`.
 
 ## Chạy local
@@ -41,6 +41,10 @@ Tại địa chỉ HTTPS trong dòng `Now listening on`, đăng nhập quản tr
 Nếu cần minh chứng bước xác nhận đăng ký ở môi trường local, có thể đặt `Identity__RequireConfirmedAccount=true` trước khi chạy. Identity mặc định của dự án cho phép đăng ký và đăng nhập trực tiếp khi khóa này bỏ trống. Quản trị phim và thể loại luôn cần vai trò Admin.
 
 Email xác nhận qua Gmail SMTP nằm trong quy trình checkout. Để thử, đặt `Email__Address`, `Email__AppPassword` và `Email__TestRecipient` bằng cấu hình riêng. Checkout chỉ gửi đến địa chỉ thử đã cấu hình. Đơn hàng được lưu trước khi gửi thư và vẫn có trang xác nhận nếu không gửi được email.
+
+## Giao diện Cuộn Phim
+
+Trang đầu trình bày phim nổi bật, ảnh bìa điện ảnh và bộ lọc kho phim. Giao diện tối được dùng chung cho trang chi tiết, quản trị, giỏ hàng và checkout. Tranh minh họa của các phim mẫu là ảnh tạo bằng AI, lưu ở `wwwroot/images/cinema/`. Đường dẫn poster riêng được lưu khi thêm và chỉnh sửa phim.
 
 ## Triển khai Somee
 

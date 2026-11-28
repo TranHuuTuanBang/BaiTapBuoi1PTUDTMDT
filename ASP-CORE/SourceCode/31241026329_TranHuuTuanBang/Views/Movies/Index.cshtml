@@ -2,20 +2,42 @@
 @using _31241026329_TranHuuTuanBang.Services
 @{
     ViewData["Title"] = "Kho phim";
+    var isFiltering = Model.Genre.HasValue || !string.IsNullOrWhiteSpace(Model.Query);
+    var featured = Model.Movies.FirstOrDefault(movie => movie.PicturePath == "/posters/ga-cuoi-quy-dao.jpg");
 }
-<section class="hero" aria-labelledby="catalog-title">
-    <div class="hero-copy">
-        <p class="eyebrow">Cửa hàng phim</p>
-        <h1 id="catalog-title">Cuộn Phim</h1>
-        <p>Khám phá các tựa phim và chọn phim cho buổi chiếu tiếp theo của bạn.</p>
-        <a class="button light" href="#danh-sach">Xem kho phim</a>
-    </div>
-    <div class="hero-art" aria-hidden="true"></div>
-</section>
+@if (!isFiltering)
+{
+    <section class="hero" aria-labelledby="featured-title">
+        <div class="hero-art" aria-hidden="true"></div>
+        <div class="hero-copy">
+            <p class="hero-kicker"><span></span>@(featured == null ? "Cửa hàng phim" : "Phim nổi bật")</p>
+            <h1 id="featured-title">@(featured?.Title ?? "Cuộn Phim")</h1>
+            @if (featured != null)
+            {
+                <p class="hero-meta"><span>@featured.GenreObj.Name</span><span>★ @featured.Rated.ToString("0.0") / 5</span></p>
+                <p class="hero-description">@featured.Summary</p>
+            }
+            <div class="hero-actions">
+                @if (featured != null)
+                {
+                    <a class="button light" asp-action="Details" asp-route-id="@featured.ID">Xem chi tiết <span aria-hidden="true">↗</span></a>
+                }
+                <a class="button hero-secondary" href="#danh-sach">Xem kho phim <span aria-hidden="true">↓</span></a>
+            </div>
+        </div>
+    </section>
+}
 <section id="danh-sach" class="listings">
     <div class="section-head">
         <div>
-            <h2>Kho phim</h2>
+            @if (isFiltering)
+            {
+                <h1 class="catalog-results-title">Kết quả tìm phim</h1>
+            }
+            else
+            {
+                <h2>Kho phim</h2>
+            }
             <p class="muted">@Model.Movies.Count phim</p>
         </div>
         @if (User.IsInRole(AdminSetup.Role))
@@ -39,6 +61,10 @@
             </select>
         </div>
         <button class="button secondary" type="submit">Tìm phim</button>
+        @if (isFiltering)
+        {
+            <a class="filter-reset" asp-action="Index">Xóa bộ lọc</a>
+        }
     </form>
     @if (Model.Movies.Count == 0)
     {
@@ -51,12 +77,13 @@
             {
                 <article class="movie-card">
                     <a asp-action="Details" asp-route-id="@movie.ID" class="cover">
-                        <img src="@movie.Poster" alt="Poster @movie.Title" loading="lazy" />
+                        <img src="@movie.Poster" alt="Poster @movie.Title" loading="lazy" decoding="async" />
+                        <span class="rating" aria-label="Đánh giá @movie.Rated.ToString("0.0") trên 5"><span aria-hidden="true">★</span> @movie.Rated.ToString("0.0")</span>
                     </a>
                     <div class="movie-content">
                         <p class="eyebrow">@movie.GenreObj.Name</p>
                         <h3><a asp-action="Details" asp-route-id="@movie.ID">@movie.Title</a></h3>
-                        <p class="muted">★ @movie.Rated.ToString("0.0") · @movie.ReleaseDate.ToString("dd/MM/yyyy")</p>
+                        <p class="movie-date muted">@movie.ReleaseDate.ToString("dd/MM/yyyy")</p>
                         <div class="card-actions">
                             <strong>@movie.Price.ToString("N0") đ</strong>
                             <form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@movie.ID" method="post">
