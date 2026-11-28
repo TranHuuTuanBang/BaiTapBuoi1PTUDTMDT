@@ -1,0 +1,8 @@
+@model Genre
+@{
+    ViewData["Title"] = Model.Name;
+}
+<a class="back-link" asp-action="Index">← Thể loại</a>
+<h1>@Model.Name</h1>
+<p>@Model.Movies.Count phim thuộc thể loại này.</p>
+<a class="button" asp-controller="Movies" asp-action="Index" asp-route-genre="@Model.ID">Xem phim</a>

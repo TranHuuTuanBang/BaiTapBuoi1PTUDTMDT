@@ -1,0 +1,20 @@
+@model Genre
+@{
+    var action = Model.ID > 0 ? "Edit" : "Create";
+    ViewData["Title"] = Model.ID > 0 ? "Chỉnh sửa thể loại" : "Thêm thể loại";
+}
+<a class="back-link" asp-action="Index">← Thể loại</a>
+<h1>@ViewData["Title"]</h1>
+<form class="panel form-grid" asp-action="@action" asp-route-id="@(Model.ID > 0 ? Model.ID : null)" method="post">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name" class="validation"></span>
+    </div>
+    <button class="button" type="submit">Lưu thể loại</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,62 @@
+@model MovieInput
+@{
+    var movieId = ViewData["MovieId"];
+    var editing = movieId != null;
+    var action = editing ? "Edit" : "Create";
+    ViewData["Title"] = editing ? "Chỉnh sửa phim" : "Thêm phim";
+}
+<a class="back-link" asp-action="Index">← Kho phim</a>
+<h1>@ViewData["Title"]</h1>
+<form class="panel form-grid" asp-action="@action" asp-route-id="@movieId" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title" class="validation"></span>
+    </div>
+    <div>
+        <label asp-for="Summary"></label>
+        <textarea asp-for="Summary" rows="4"></textarea>
+        <span asp-validation-for="Summary" class="validation"></span>
+    </div>
+    <div class="form-row">
+        <div>
+            <label asp-for="GenreID"></label>
+            <select asp-for="GenreID" asp-items="ViewBag.Genres">
+                <option value="">Chọn thể loại</option>
+            </select>
+            <span asp-validation-for="GenreID" class="validation"></span>
+            <a asp-controller="Genres" asp-action="Create">Tạo thể loại</a>
+        </div>
+        <div>
+            <label asp-for="ReleaseDate"></label>
+            <input asp-for="ReleaseDate" type="date" asp-format="{0:yyyy-MM-dd}" />
+            <span asp-validation-for="ReleaseDate" class="validation"></span>
+        </div>
+        <div>
+            <label asp-for="Price"></label>
+            <input asp-for="Price" type="number" min="5000" step="1" />
+            <span asp-validation-for="Price" class="validation"></span>
+        </div>
+        <div>
+            <label asp-for="Rated"></label>
+            <input asp-for="Rated" type="number" min="1" max="5" step="0.1" />
+            <span asp-validation-for="Rated" class="validation"></span>
+        </div>
+    </div>
+    <div>
+        @if (Model.Poster != null)
+        {
+            <img class="thumb" src="@Model.Poster" alt="Ảnh hiện tại" />
+        }
+        <label asp-for="PictureUpload"></label>
+        <input asp-for="PictureUpload" type="file" accept="image/jpeg,image/png,image/webp" />
+        <p class="muted">JPG, PNG hoặc WebP, tối đa 2 MB. @(editing ? "Để trống để giữ ảnh hiện tại." : "Để trống để dùng ảnh mặc định.")</p>
+        <span asp-validation-for="PictureUpload" class="validation"></span>
+    </div>
+    <button class="button" type="submit">Lưu phim</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

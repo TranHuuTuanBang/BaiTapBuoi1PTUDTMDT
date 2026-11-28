@@ -1,0 +1,43 @@
+@model IReadOnlyList<Genre>
+@using _31241026329_TranHuuTuanBang.Services
+@{
+    ViewData["Title"] = "Thể loại";
+}
+<div class="section-head">
+    <h1>Thể loại</h1>
+    @if (User.IsInRole(AdminSetup.Role))
+    {
+        <a class="button" asp-action="Create">Thêm thể loại</a>
+    }
+</div>
+@if (Model.Count == 0)
+{
+    <p class="empty">Chưa có thể loại.</p>
+}
+else
+{
+    <div class="table-shell">
+        <table>
+            <thead><tr><th scope="col">Tên thể loại</th><th scope="col">Số phim</th><th scope="col">Thao tác</th></tr></thead>
+            <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <th scope="row"><a asp-action="Details" asp-route-id="@genre.ID">@genre.Name</a></th>
+                    <td>@genre.Movies.Count</td>
+                    <td class="actions">
+                        <a asp-action="Index" asp-controller="Movies" asp-route-genre="@genre.ID">Xem phim</a>
+                        @if (User.IsInRole(AdminSetup.Role))
+                        {
+                            <a asp-action="Edit" asp-route-id="@genre.ID">Sửa</a>
+                            <form asp-action="Delete" asp-route-id="@genre.ID" method="post">
+                                <button class="button secondary" type="submit">Xóa</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

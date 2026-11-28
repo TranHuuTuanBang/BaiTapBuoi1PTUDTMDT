@@ -1,0 +1,71 @@
+@model CatalogView
+@using _31241026329_TranHuuTuanBang.Services
+@{
+    ViewData["Title"] = "Kho phim";
+}
+<section class="hero" aria-labelledby="catalog-title">
+    <div class="hero-copy">
+        <p class="eyebrow">Cửa hàng phim</p>
+        <h1 id="catalog-title">Cuộn Phim</h1>
+        <p>Khám phá các tựa phim và chọn phim cho buổi chiếu tiếp theo của bạn.</p>
+        <a class="button light" href="#danh-sach">Xem kho phim</a>
+    </div>
+    <div class="hero-art" aria-hidden="true"></div>
+</section>
+<section id="danh-sach" class="listings">
+    <div class="section-head">
+        <div>
+            <h2>Kho phim</h2>
+            <p class="muted">@Model.Movies.Count phim</p>
+        </div>
+        @if (User.IsInRole(AdminSetup.Role))
+        {
+            <a class="button secondary" asp-action="Create">Thêm phim</a>
+        }
+    </div>
+    <form class="filters" asp-action="Index" method="get">
+        <div>
+            <label for="q">Tìm tên phim</label>
+            <input id="q" name="q" value="@Model.Query" type="search" placeholder="Nhập tên phim" />
+        </div>
+        <div>
+            <label for="genre">Thể loại</label>
+            <select id="genre" name="genre">
+                <option value="">Tất cả thể loại</option>
+                @foreach (var item in Model.Genres)
+                {
+                    <option value="@item.ID" selected="@(Model.Genre == item.ID)">@item.Name</option>
+                }
+            </select>
+        </div>
+        <button class="button secondary" type="submit">Tìm phim</button>
+    </form>
+    @if (Model.Movies.Count == 0)
+    {
+        <p class="empty">Chưa có phim phù hợp.</p>
+    }
+    else
+    {
+        <div class="movie-grid">
+            @foreach (var movie in Model.Movies)
+            {
+                <article class="movie-card">
+                    <a asp-action="Details" asp-route-id="@movie.ID" class="cover">
+                        <img src="@movie.Poster" alt="Poster @movie.Title" loading="lazy" />
+                    </a>
+                    <div class="movie-content">
+                        <p class="eyebrow">@movie.GenreObj.Name</p>
+                        <h3><a asp-action="Details" asp-route-id="@movie.ID">@movie.Title</a></h3>
+                        <p class="muted">★ @movie.Rated.ToString("0.0") · @movie.ReleaseDate.ToString("dd/MM/yyyy")</p>
+                        <div class="card-actions">
+                            <strong>@movie.Price.ToString("N0") đ</strong>
+                            <form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@movie.ID" method="post">
+                                <button type="submit" class="button" aria-label="Thêm @movie.Title vào giỏ">Thêm vào giỏ</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+</section>

@@ -1,0 +1,51 @@
+@model CheckoutInput
+@{
+    ViewData["Title"] = "Đặt hàng";
+}
+<a class="back-link" asp-action="Index">← Giỏ hàng</a>
+<h1>Đặt hàng</h1>
+<p class="muted">Đây là bản thực hành. Vui lòng nhập dữ liệu thử và không nhập thông tin thanh toán.</p>
+<div class="checkout-grid">
+    <form class="panel form-grid" asp-action="Checkout" method="post">
+        <input asp-for="Token" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <div>
+            <label asp-for="Shipping.Name"></label>
+            <input asp-for="Shipping.Name" />
+            <span asp-validation-for="Shipping.Name" class="validation"></span>
+        </div>
+        <div>
+            <label asp-for="Shipping.Address"></label>
+            <input asp-for="Shipping.Address" />
+            <span asp-validation-for="Shipping.Address" class="validation"></span>
+        </div>
+        <div>
+            <label asp-for="Shipping.Email"></label>
+            <input asp-for="Shipping.Email" type="email" />
+            <span asp-validation-for="Shipping.Email" class="validation"></span>
+        </div>
+        <div>
+            <label asp-for="Shipping.Mobile"></label>
+            <input asp-for="Shipping.Mobile" type="tel" />
+            <span asp-validation-for="Shipping.Mobile" class="validation"></span>
+        </div>
+        <div>
+            <label asp-for="Shipping.DeliveryDate"></label>
+            <input asp-for="Shipping.DeliveryDate" asp-format="{0:yyyy-MM-dd}" type="date" />
+            <span asp-validation-for="Shipping.DeliveryDate" class="validation"></span>
+        </div>
+        <button class="button" type="submit">Xác nhận đơn hàng</button>
+    </form>
+    <aside class="panel order-summary" aria-labelledby="order-summary">
+        <h2 id="order-summary">Đơn hàng</h2>
+        @foreach (var line in Model.Lines)
+        {
+            <p><span>@line.Movie.Title × @line.Quantity</span><strong>@line.Subtotal.ToString("N0") đ</strong></p>
+        }
+        <p><strong>Tổng cộng</strong><strong>@Model.Lines.Sum(line => line.Subtotal).ToString("N0") đ</strong></p>
+    </aside>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

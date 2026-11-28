@@ -1,0 +1,17 @@
+@using _31241026329_TranHuuTuanBang.Services
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <a asp-area="Identity" asp-page="/Account/Manage/Index">Tài khoản</a>
+    @if (User.IsInRole(AdminSetup.Role))
+    {
+        <a asp-controller="Movies" asp-action="Create">Thêm phim</a>
+    }
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
+        <button class="nav-button" type="submit">Đăng xuất</button>
+    </form>
+}
+else
+{
+    <a asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
+    <a asp-area="Identity" asp-page="/Account/Register">Đăng ký</a>
+}

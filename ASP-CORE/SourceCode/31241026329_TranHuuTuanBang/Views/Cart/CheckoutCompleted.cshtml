@@ -1,0 +1,9 @@
+@model int
+@{
+    ViewData["Title"] = "Đã đặt hàng";
+}
+<section class="panel confirmation">
+    <h1>Cảm ơn bạn!</h1>
+    <p>Đơn hàng <strong>#@Model.ToString("D5")</strong> đã được ghi nhận.</p>
+    <a class="button" asp-controller="Movies" asp-action="Index">Về kho phim</a>
+</section>

@@ -1,0 +1,43 @@
+@model IReadOnlyList<CartLine>
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+<a class="back-link" asp-controller="Movies" asp-action="Index">← Tiếp tục xem phim</a>
+<h1>Giỏ hàng</h1>
+@if (Model.Count == 0)
+{
+    <p class="empty">Giỏ hàng đang trống.</p>
+}
+else
+{
+    <div class="table-shell" tabindex="0" aria-label="Các phim trong giỏ">
+        <table>
+            <thead><tr><th scope="col">Phim</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th><th scope="col">Thao tác</th></tr></thead>
+            <tbody>
+            @foreach (var line in Model)
+            {
+                <tr>
+                    <th scope="row"><a asp-controller="Movies" asp-action="Details" asp-route-id="@line.Movie.ID">@line.Movie.Title</a></th>
+                    <td>@line.Movie.Price.ToString("N0") đ</td>
+                    <td>
+                        <form class="actions quantity" asp-action="Update" asp-route-id="@line.Movie.ID" method="post">
+                            <input type="number" name="quantity" value="@line.Quantity" min="1" max="99" required aria-label="Số lượng @line.Movie.Title" />
+                            <button class="button secondary" type="submit">Cập nhật</button>
+                        </form>
+                    </td>
+                    <td>@line.Subtotal.ToString("N0") đ</td>
+                    <td>
+                        <form asp-action="RemoveFromCart" asp-route-id="@line.Movie.ID" method="post">
+                            <button class="button secondary" type="submit" aria-label="Xóa @line.Movie.Title khỏi giỏ">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="cart-total">
+        <p>Tổng cộng <strong>@Model.Sum(line => line.Subtotal).ToString("N0") đ</strong></p>
+        <a class="button" asp-action="Checkout">Đặt hàng</a>
+    </div>
+}

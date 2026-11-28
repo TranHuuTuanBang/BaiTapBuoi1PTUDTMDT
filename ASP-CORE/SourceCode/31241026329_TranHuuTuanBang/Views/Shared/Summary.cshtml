@@ -1,0 +1,5 @@
+@using _31241026329_TranHuuTuanBang.Extension
+@{
+    var count = Context.Session.GetCart().Values.Sum();
+}
+<a class="cart-link" asp-controller="Cart" asp-action="Index">Giỏ hàng <span>@count</span></a>

@@ -1,0 +1,26 @@
+@model Movie
+@using _31241026329_TranHuuTuanBang.Services
+@{
+    ViewData["Title"] = Model.Title;
+}
+<a class="back-link" asp-action="Index">← Kho phim</a>
+<article class="details">
+    <img class="detail-poster" src="@Model.Poster" alt="Poster @Model.Title" />
+    <div>
+        <p class="eyebrow">@Model.GenreObj.Name</p>
+        <h1>@Model.Title</h1>
+        <p class="muted">★ @Model.Rated.ToString("0.0") / 5 · Phát hành @Model.ReleaseDate.ToString("dd/MM/yyyy")</p>
+        <p class="summary">@Model.Summary</p>
+        <p class="price">@Model.Price.ToString("N0") đ</p>
+        <div class="actions">
+            <form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ID" method="post">
+                <button class="button" type="submit">Thêm vào giỏ</button>
+            </form>
+            @if (User.IsInRole(AdminSetup.Role))
+            {
+                <a class="button secondary" asp-action="Edit" asp-route-id="@Model.ID">Chỉnh sửa</a>
+                <a class="button secondary" asp-action="Delete" asp-route-id="@Model.ID">Xóa phim</a>
+            }
+        </div>
+    </div>
+</article>
