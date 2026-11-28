@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Lora";
+    src: url('../fonts/lora-vietnamese.woff2') format("woff2");
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+}
+
 :root {
     color-scheme: dark;
     --base: #0d0d10;
@@ -8,7 +16,7 @@
     --accent: #f4ab82;
     --accent-hover: #ffbf9d;
     --line: #3b343e;
-    --display: Georgia, Cambria, serif;
+    --display: "Lora", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -16,7 +24,7 @@ body { margin: 0; min-width: 0; color: var(--ink); background: var(--base); font
 a { color: var(--accent); text-underline-offset: .23em; }
 :focus-visible { outline: 3px solid var(--accent-hover); outline-offset: 4px; }
 p { margin: 0 0 1rem; }
-h1, h2, h3 { margin: 0 0 .55rem; font-family: var(--display); font-weight: 500; letter-spacing: -.045em; }
+h1, h2, h3 { margin: 0 0 .55rem; font-family: var(--display); font-weight: 500; letter-spacing: -.018em; }
 h1 { font-size: clamp(2.65rem, 6vw, 4.65rem); line-height: 1.05; }
 h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.1; }
 h3 { font-size: 1.4rem; line-height: 1.22; }
@@ -24,7 +32,7 @@ h3 { font-size: 1.4rem; line-height: 1.22; }
 .site-head { background: #111015; border-bottom: 1px solid #2b262f; }
 .head, .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1rem; }
 .head { min-height: 4.75rem; }
-.brand { color: var(--ink); display: inline-flex; align-items: center; gap: .65rem; font: 600 1.65rem/1 var(--display); letter-spacing: -.05em; text-decoration: none; white-space: nowrap; }
+.brand { color: var(--ink); display: inline-flex; align-items: center; gap: .65rem; font: 600 1.65rem/1 var(--display); letter-spacing: -.028em; text-decoration: none; white-space: nowrap; }
 .brand-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid #b96e65; border-radius: .45rem; color: var(--accent); background: #39232c; font: .72rem system-ui, sans-serif; }
 .navlinks, .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1.15rem; }
 .navlinks a, .nav-button { color: var(--muted); font: 650 .9rem/1.25 system-ui, sans-serif; text-decoration: none; }
@@ -40,7 +48,7 @@ h3 { font-size: 1.4rem; line-height: 1.22; }
 .hero-copy { max-width: 35rem; }
 .hero-kicker { display: flex; align-items: center; gap: .62rem; color: var(--accent); font-size: .75rem; font-weight: 750; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 1.05rem; }
 .hero-kicker span { width: 1.8rem; height: 1px; background: currentColor; }
-.hero h1 { max-width: 8ch; margin-bottom: .85rem; font-size: clamp(4.3rem, 8vw, 7rem); line-height: .91; letter-spacing: -.065em; text-wrap: balance; }
+.hero h1 { max-width: 8ch; margin-bottom: .85rem; font-size: clamp(4.3rem, 8vw, 7rem); line-height: .98; letter-spacing: -.03em; text-wrap: balance; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: .5rem .8rem; color: #efc9b3; font-size: .85rem; font-weight: 650; margin: 1.4rem 0 .7rem; }
 .hero-meta span + span { border-left: 1px solid #a4736b; padding-left: .8rem; }
 .hero-description { max-width: 27rem; color: #e4d4d0; margin-bottom: 1.5rem; }
